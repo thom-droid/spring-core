@@ -1,7 +1,7 @@
 package hello.core;
 
 import hello.core.discount.DiscountPolicy;
-import hello.core.discount.FixedPriceDiscount;
+import hello.core.discount.FixedRateDiscount;
 import hello.core.member.MemberRepository;
 import hello.core.member.MemberService;
 import hello.core.member.MemberServiceImpl;
@@ -24,6 +24,8 @@ public class AppConfig {
     }
 
     public DiscountPolicy discountPolicy(){
-        return new FixedPriceDiscount();
+//        return new FixedPriceDiscount();
+        return new FixedRateDiscount();
     }
+
 }
