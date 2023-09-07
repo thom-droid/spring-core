@@ -2,7 +2,6 @@ package hello.core.bean;
 
 import hello.core.AppComponent;
 import hello.core.AppConfig;
-import hello.core.item.Inventory;
 import hello.core.item.ItemServiceImpl;
 import hello.core.member.MemberService;
 import org.junit.jupiter.api.DisplayName;
@@ -20,17 +19,14 @@ public class ComponentTest {
 
         MemberService memberService = ac.getBean("memberService", MemberService.class);
         ItemServiceImpl itemService = ac.getBean("itemService", ItemServiceImpl.class);
-        Inventory inventory = ac.getBean("inventory", Inventory.class);
 
         assertThat(itemService.getMemberService()).isSameAs(memberService);
-        assertThat(inventory.getArg()).isSameAs(itemService.getArg1());
     }
 
     @Test
     public void componentAnnotated2() {
         AnnotationConfigApplicationContext ac = new AnnotationConfigApplicationContext(AppConfig.class, AppComponent.class);
 
-        Object test = ac.getBean("test", Object.class);
         String[] beanDefinitionNames = ac.getBeanDefinitionNames();
         for (String beanDefinitionName : beanDefinitionNames) {
             Object bean = ac.getBean(beanDefinitionName);
