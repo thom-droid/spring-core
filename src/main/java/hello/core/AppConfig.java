@@ -14,6 +14,8 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AppConfig {
 
+//    @Autowired MemberRepository memberRepository;
+
     @Bean
     public MemberService memberService() {
         System.out.println("AppConfig.memberService");
